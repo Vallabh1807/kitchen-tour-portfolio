@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+/* ── Variables ── */
+:root {
+  --cream:     #FFF8ED;
+  --yellow:    #FFD166;
+  --orange:    #FF6B35;
+  --red:       #E63946;
+  --green:     #06D6A0;
+  --teal:      #118AB2;
+  --purple:    #9B5DE5;
+  --dark:      #1a1a1a;
+  --wood:      #A0522D;
+  --wood-dark: #7a3f22;
+  --tile-a:    #F5EDD8;
+  --tile-b:    #E8DFC0;
+
+  --shadow:    5px 5px 0 var(--dark);
+  --shadow-sm: 3px 3px 0 var(--dark);
+  --shadow-lg: 8px 8px 0 var(--dark);
+
+  --font-d: 'Fredoka One', cursive;
+  --font-b: 'Nunito', sans-serif;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  cursor: none !important; /* Force hide default cursor everywhere */
+}
+
+.food-particle {
+  will-change: transform, opacity;
+}
+
+html { scroll-behavior: auto; } /* we handle scroll manually */
+body {
+  font-family: var(--font-b);
+  background: #0d0d0d;
+  color: var(--dark);
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+/* ── Tile floor pattern ── */
+.tile-floor {
+  background-image:
+    linear-gradient(45deg,  var(--tile-b) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--tile-b) 25%, transparent 25%),
+    linear-gradient(45deg,  transparent 75%, var(--tile-b) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--tile-b) 75%);
+  background-size: 48px 48px;
+  background-position: 0 0, 0 24px, 24px -24px, -24px 0;
+  background-color: var(--tile-a);
+  background-attachment: fixed; /* Parallax floating effect */
+  animation: floatBG 20s linear infinite;
+}
+
+@keyframes floatBG {
+  from { background-position: 0 0, 0 24px, 24px -24px, -24px 0; }
+  to   { background-position: 48px 48px, 48px 72px, 72px 24px, 24px 48px; }
+}
+
+/* ── Reusable card ── */
+.card {
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--font-d); font-size: 1rem;
+  padding: 12px 28px;
+  border: 3px solid var(--dark); border-radius: 50px;
+  box-shadow: var(--shadow-sm);
+  cursor: none;
+  transition: transform .12s, box-shadow .12s;
+  text-decoration: none;
+  background: none;
+}
+.btn:hover  { transform: translateY(-3px); box-shadow: 3px 6px 0 var(--dark); }
+.btn:active { transform: translateY(2px);  box-shadow: 1px 1px 0 var(--dark); }
+.btn-orange { background: var(--orange); color: #fff; }
+.btn-green  { background: var(--green);  color: #fff; }
+.btn-dark   { background: var(--dark);   color: #fff; }
+.btn-yellow { background: var(--yellow); color: var(--dark); }
+
+/* ── Tag ── */
+.tag {
+  display: inline-block;
+  background: var(--cream); border: 2px solid var(--dark);
+  border-radius: 20px; padding: 3px 12px;
+  font-size: .78rem; font-weight: 800;
+}
+
+/* ── Scroll-reveal base (JS adds .visible) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left  { opacity: 0; transform: translateX(-60px); transition: opacity .7s ease, transform .7s ease; }
+.reveal-right { opacity: 0; transform: translateX( 60px); transition: opacity .7s ease, transform .7s ease; }
+.reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* stagger delays */
+.delay-1 { transition-delay: .1s; }
+.delay-2 { transition-delay: .2s; }
+.delay-3 { transition-delay: .3s; }
+.delay-4 { transition-delay: .4s; }
+.delay-5 { transition-delay: .5s; }
+.delay-6 { transition-delay: .6s; }
