@@ -46,9 +46,24 @@ export default function SceneContact() {
             {socials.map(s => (
               <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
                 className="card"
-                style={{ padding: '14px 8px', textAlign: 'center', textDecoration: 'none', color: 'var(--dark)', cursor: 'none', transition: 'transform .15s' }}
-                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-6px) rotate(-2deg)'}
-                onMouseLeave={e => e.currentTarget.style.transform = ''}
+                style={{ 
+                  padding: '16px 8px', 
+                  textAlign: 'center', 
+                  textDecoration: 'none', 
+                  color: 'var(--dark)', 
+                  cursor: 'none', 
+                  transition: 'all .25s cubic-bezier(0.175, 0.885, 0.32, 1.275)' 
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-10px) rotate(-3deg) scale(1.05)';
+                  e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
+                  e.currentTarget.style.borderColor = 'var(--orange)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = '';
+                  e.currentTarget.style.boxShadow = '';
+                  e.currentTarget.style.borderColor = '';
+                }}
               >
                 <div style={{ fontSize: '1.8rem' }}>{s.emoji}</div>
                 <div style={{ fontFamily: 'var(--font-d)', fontSize: '.9rem', marginTop: 4 }}>{s.label}</div>

@@ -48,7 +48,7 @@ export default function ProjectCard({ project, delay = 0 }) {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: '16px',
             animation: 'modalFadeIn .3s ease',
-            backdropFilter: 'blur(10px)',
+            backdropFilter: 'blur(4px)',
             cursor: 'none',
             pointerEvents: 'auto',
           }}

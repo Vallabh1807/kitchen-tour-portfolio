@@ -158,7 +158,7 @@ export default function LoadingScreen({ onComplete }) {
               textShadow: step >= 4 ? '2px 2px 0 rgba(0,0,0,0.4)' : 'none',
               transition: 'color 0.5s ease',
             }}>
-              👨‍🍳 Kitchen Rush
+              👨‍🍳 Kitchen Tour
             </div>
             <div style={{
               fontSize:   '.8rem',

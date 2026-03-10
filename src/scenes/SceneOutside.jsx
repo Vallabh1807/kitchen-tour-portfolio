@@ -85,7 +85,7 @@ export default function SceneOutside() {
             }}>
               <style>{`@keyframes glow{0%,100%{box-shadow:0 0 20px var(--orange),var(--shadow)}50%{box-shadow:0 0 40px var(--orange),0 0 60px rgba(255,107,53,.4),var(--shadow)}}`}</style>
               <div style={{ fontFamily: 'var(--font-d)', fontSize: 'clamp(1.4rem,3vw,2rem)', color: 'white', textShadow: '2px 2px 0 var(--dark)' }}>
-                👨‍🍳 Kitchen Rush
+                👨‍🍳 Kitchen Tour
               </div>
               <div style={{ color: 'rgba(255,255,255,.85)', fontWeight: 800, fontSize: '.9rem' }}>
                 AI, SDE and Home Chef

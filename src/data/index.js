@@ -10,10 +10,10 @@ export const CHEF = {
   bio:       "Fresh SDE at Capgemini with a frontend soul and an AI appetite. Started cooking code in 2023 — went from building React UIs to engineering AI systems in under 2 years. Currently growing fast, shipping real software, and obsessing over Gen AI, vibe coding, and whatever's on the stove.",
   location:  'Mumbai, India 🇮🇳',
   stats: [
-    { emoji: '💻', value: '2+ yrs', label: 'Coding Journey' },
+    { emoji: '💻', value: '2+ yrs', label: 'Experience' },
     { emoji: '🏢', value: '3',      label: 'Experiences' },
-    { emoji: '🤖', value: 'Daily',  label: 'AI-Assisted Dev' },
-    { emoji: '📈', value: '2023',   label: 'Started Cooking' },
+    { emoji: '⚛️', value: 'MERN',   label: 'Stack' },
+    { emoji: '✨', value: 'Vibe',   label: 'Coder' },
   ],
   socials: {
     github:   'https://github.com/Vallabh1807',
@@ -164,13 +164,15 @@ export const TESTIMONIALS = [
 ]
 
 export const RESUME = {
-  downloadLink: 'https://example.com/resume.pdf',
+  downloadUrl: '#',
   highlights: [
-    { label: "Today's Special", value: "Senior Full-Stack Developer" },
-    { label: "Years of Experience", value: "5+ Years" },
-    { label: "Location", value: "Mumbai, India" },
-    { label: "Open to", value: "Remote / Hybrid / On-site" },
-  ]
+    { label: 'Current Role',        value: 'Software Developer Engineer' },
+    { label: 'Company',             value: 'Capgemini (Fresher)' },
+    { label: 'Years of Experience', value: '2+ Years' },
+    { label: 'Location',            value: 'Mumbai, India' },
+    { label: 'Open to',             value: 'Full-time · On-site · Hybrid' },
+  ],
+  tagline: 'HUNGRY FOR OPPORTUNITIES',
 }
 
 export const CREDENTIALS = [

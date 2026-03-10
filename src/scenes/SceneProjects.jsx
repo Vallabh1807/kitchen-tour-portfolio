@@ -158,7 +158,7 @@ export default function SceneProjects() {
                     opacity: cardOp,
                     transition: 'transform 0.15s ease, opacity 0.15s ease',
                     perspective: 800,
-                    filter: isActive ? 'none' : `blur(${dist > 1 ? 1 : 0}px)`,
+                    filter: isActive ? 'none' : `blur(${dist > 1 ? 0.4 : 0}px)`,
                   }}
                 >
                   <ProjectCard project={project} delay={0} />

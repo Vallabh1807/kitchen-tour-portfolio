@@ -90,14 +90,26 @@ export default function SceneReception() {
             marginBottom: 28,
           }}>
             {CHEF.stats.map((s, i) => (
-              <div key={i} className={`reveal delay-${i + 1}`} style={{
-                background: 'var(--cream)', border: '3px solid var(--dark)',
-                borderRadius: 16, padding: '14px 8px',
-                boxShadow: 'var(--shadow-sm)',
-              }}>
-                <div style={{ fontSize: '1.6rem' }}>{s.emoji}</div>
-                <div style={{ fontFamily: 'var(--font-d)', fontSize: '1.4rem' }}>{s.value}</div>
-                <div style={{ fontSize: '.7rem', fontWeight: 800, color: '#555' }}>{s.label}</div>
+              <div key={i} className={`card reveal delay-${i + 1}`} 
+                style={{
+                  padding: '20px 10px',
+                  transition: 'all .25s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                  cursor: 'none',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-8px) rotate(-1deg) scale(1.02)';
+                  e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
+                  e.currentTarget.style.borderColor = 'var(--orange)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = '';
+                  e.currentTarget.style.boxShadow = '';
+                  e.currentTarget.style.borderColor = '';
+                }}
+              >
+                <div style={{ fontSize: '1.8rem', marginBottom: 6 }}>{s.emoji}</div>
+                <div style={{ fontFamily: 'var(--font-d)', fontSize: '1.6rem', color: 'var(--dark)', lineHeight: 1.1 }}>{s.value}</div>
+                <div style={{ fontSize: '.75rem', fontWeight: 900, color: 'var(--orange)', marginTop: 6, textTransform: 'uppercase', letterSpacing: 1 }}>{s.label}</div>
               </div>
             ))}
           </div>

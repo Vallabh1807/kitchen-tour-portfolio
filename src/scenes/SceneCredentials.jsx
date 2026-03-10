@@ -78,7 +78,7 @@ export default function SceneCredentials() {
                     CURRICULUM VITAE
                   </div>
                   <div style={{ fontSize: '.75rem', fontWeight: 900, color: 'var(--orange)', marginTop: 10, textTransform: 'uppercase' }}>
-                    Available for immediate service
+                    {RESUME.tagline}
                   </div>
                 </div>
 
@@ -107,7 +107,7 @@ export default function SceneCredentials() {
                 </div>
 
                 <div style={{ textAlign: 'center' }}>
-                  <a href={RESUME.downloadLink} target="_blank" rel="noreferrer" className="btn btn-orange" style={{ width: '100%', padding: '15px' }}>
+                  <a href={RESUME.downloadUrl} target="_blank" rel="noreferrer" className="btn btn-orange" style={{ width: '100%', padding: '15px' }}>
                      GET FULL RECIPE (PDF)
                   </a>
                   <p style={{ fontSize: '.7rem', color: '#999', marginTop: 12, fontWeight: 700 }}>
