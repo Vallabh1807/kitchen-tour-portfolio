@@ -67,6 +67,30 @@ export default function SceneReception() {
             {CHEF.bio}
           </p>
 
+          <div style={{
+            display:        'inline-flex',
+            alignItems:     'center',
+            gap:            10,
+            background:     'linear-gradient(135deg, #FFE8D6, #FFD166)',
+            border:         '3px solid var(--dark)',
+            borderRadius:   16,
+            padding:        '12px 20px',
+            margin:         '0 auto 28px',
+            boxShadow:      'var(--shadow)',
+            maxWidth:       520,
+            fontWeight:     800,
+            fontSize:       'clamp(.88rem, 2vw, 1rem)',
+            color:          'var(--dark)',
+            fontFamily:     'var(--font-b)',
+            lineHeight:     1.5,
+            textAlign:      'center',
+          }}>
+            <span style={{ fontSize: '1.8rem' }}>🍛</span>
+            <span>
+              I cook delicious biryani and deliver clean code. Hire me if you want full plates and happy clients.
+            </span>
+          </div>
+
           {/* Available badge */}
           {CHEF.available && (
             <div style={{

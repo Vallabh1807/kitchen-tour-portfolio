@@ -141,8 +141,34 @@ export default function ProjectCard({ project, delay = 0 }) {
             </div>
 
             <div style={{ display: 'flex', gap: 12, marginTop: 32, borderTop: '2px dashed #eee', paddingTop: 24 }}>
-              <a href={live} target="_blank" rel="noreferrer" className="btn btn-orange" style={{ flex: 1, padding: '12px 0', fontSize: '.95rem' }}>🌐 LIVE</a>
-              <a href={repo} target="_blank" rel="noreferrer" className="btn btn-dark"   style={{ flex: 1, padding: '12px 0', fontSize: '.95rem' }}>🐙 CODE</a>
+              {live !== '#' ? (
+                <a href={live} target="_blank" rel="noreferrer" className="btn btn-orange" style={{ flex: 1, padding: '12px 0', fontSize: '.95rem' }}>
+                  🌐 Live Demo
+                </a>
+              ) : (
+                <div className="btn" style={{
+                  flex:1, background:'#eee', color:'#aaa',
+                  border:'3px solid #ddd', boxShadow:'none',
+                  cursor:'not-allowed', padding: '12px 0', fontSize: '.95rem',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center'
+                }}>
+                  🔒 Coming Soon
+                </div>
+              )}
+              {repo !== '#' ? (
+                <a href={repo} target="_blank" rel="noreferrer" className="btn btn-dark" style={{ flex: 1, padding: '12px 0', fontSize: '.95rem' }}>
+                  🐙 GitHub
+                </a>
+              ) : (
+                <div className="btn" style={{
+                  flex:1, background:'#eee', color:'#aaa',
+                  border:'3px solid #ddd', boxShadow:'none',
+                  cursor:'not-allowed', padding: '12px 0', fontSize: '.95rem',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center'
+                }}>
+                  🔒 Private
+                </div>
+              )}
             </div>
           </div>
         </div>,

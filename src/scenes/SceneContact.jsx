@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import { CHEF } from '../data/index'
+import emailjs from '@emailjs/browser'
 
 export default function SceneContact() {
   const wrapRef = useRef()
@@ -8,14 +9,36 @@ export default function SceneContact() {
 
   const [form, setForm] = useState({ name: '', email: '', subject: '', msg: '' })
   const [sent, setSent]  = useState(false)
+  const [sending, setSending] = useState(false)
   const [num]            = useState(() => Math.floor(Math.random() * 900) + 100)
 
   const update = k => e => setForm(p => ({ ...p, [k]: e.target.value }))
-  const submit = () => {
+  const submit = async () => {
     if (!form.name || !form.email) return
-    setSent(true)
-    setTimeout(() => setSent(false), 4000)
-    setForm({ name: '', email: '', subject: '', msg: '' })
+
+    try {
+      setSending(true)
+      await emailjs.send(
+        'service_7p2vgql',
+        'template_flmi53l',
+        {
+          from_name:  form.name,
+          from_email: form.email,
+          subject:    form.subject || 'New order from portfolio',
+          message:    form.msg    || '(no message)',
+          to_email:   'panigrahivallabh@gmail.com',
+        },
+        'Gcd5WbWlTHha80xm1'
+      )
+      setSent(true)
+      setTimeout(() => setSent(false), 4000)
+      setForm({ name: '', email: '', subject: '', msg: '' })
+      setSending(false)
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      alert('Oops! Order failed to send. Please email me directly at panigrahivallabh@gmail.com')
+      setSending(false)
+    }
   }
 
   const socials = [
@@ -114,10 +137,11 @@ export default function SceneContact() {
               </div>
               <button
                 onClick={submit}
+                disabled={sending}
                 className={`btn ${sent ? 'btn-green' : 'btn-orange'}`}
-                style={{ width: '100%', fontSize: '1.1rem', borderRadius: 12 }}
+                style={{ width: '100%', fontSize: '1.1rem', borderRadius: 12, opacity: sending ? 0.7 : 1 }}
               >
-                {sent ? '✅ Order received! I\'ll be in touch soon.' : '🚀 Send to Kitchen!'}
+                {sending ? '⏳ Sending...' : sent ? '✅ Order received!' : '🚀 Send to Kitchen!'}
               </button>
               <div style={{ height: 18, marginTop: 20, background: 'repeating-linear-gradient(90deg,var(--cream) 0 10px,transparent 10px 20px)', borderTop: '3px dashed var(--dark)' }} />
             </div>

@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useReveal } from '../hooks/useReveal'
-import { CREDENTIALS, RESUME } from '../data/index'
+import { CERTIFICATIONS, RESUME } from '../data/index'
 import ScrollHint from '../components/ScrollHint'
 
 export default function SceneCredentials() {
@@ -119,7 +119,7 @@ export default function SceneCredentials() {
 
           {/* 2. CERTIFICATIONS SECTION — Styled as framed certificates on a wall */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 25 }}>
-             {CREDENTIALS.map((cert, i) => (
+             {CERTIFICATIONS.map((cert, i) => (
                <div 
                  key={i} 
                  className={`reveal delay-${(i % 5) + 1}`}
@@ -186,32 +186,21 @@ export default function SceneCredentials() {
                  </div>
 
                  {/* Verify Link */}
-                 <a 
-                   href={cert.link} 
-                   target="_blank" 
-                   rel="noreferrer" 
-                   style={{ 
-                     fontSize: '.7rem', 
-                     fontWeight: 900, 
-                     color: 'var(--dark)', 
-                     textDecoration: 'none',
-                     border: '2px solid var(--dark)',
-                     padding: '6px 12px',
-                     borderRadius: '4px',
-                     transition: 'all 0.2s',
-                     background: 'transparent'
-                   }}
-                   onMouseEnter={e => {
-                     e.target.style.background = 'var(--dark)';
-                     e.target.style.color = 'white';
-                   }}
-                   onMouseLeave={e => {
-                     e.target.style.background = 'transparent';
-                     e.target.style.color = 'var(--dark)';
-                   }}
-                 >
-                   VERIFY
-                 </a>
+                 {cert.verifyUrl !== '#' ? (
+                   <a href={cert.verifyUrl} target="_blank" rel="noreferrer"
+                      className="btn btn-dark" style={{ fontSize:'.8rem', padding:'8px 16px' }}>
+                     🔗 Verify
+                   </a>
+                 ) : (
+                   <div style={{
+                     display:'inline-block',
+                     background:'#eee', color:'#aaa',
+                     border:'2px solid #ddd', borderRadius:20,
+                     padding:'6px 14px', fontSize:'.78rem', fontWeight:800,
+                   }}>
+                     📄 PDF Coming Soon
+                   </div>
+                 )}
                </div>
              ))}
 
