@@ -137,8 +137,8 @@ export const PROJECTS = [
     stack: ['React', 'OpenAI', 'Node.js'],
     difficulty: 4,
     year: '2025',
-    live: '#',
-    repo: '#',
+    live: 'https://nourish-meal-planner.vercel.app/',
+    repo: 'https://github.com/Vallabh1807/nourish',
   },
 ]
 
