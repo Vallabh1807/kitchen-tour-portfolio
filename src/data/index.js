@@ -47,6 +47,13 @@ export const TIMELINE = [
     title: 'Fresh Chef @ Capgemini',
     desc:  'Joined Capgemini as a fresher SDE. Day one of the big leagues — learning fast, contributing faster, and bringing the AI mindset into every task.',
   },
+  {
+    year:  'Now',
+    emoji: '🚌',
+    title: 'Currently Cooking',
+    desc:  'Building a modern transit application for Thane Municipal Transport (TMT) featuring live bus tracking, intelligent route finding, and an integrated E-ticketing system.',
+    color: 'var(--green)',
+  },
 ]
 
 export const PROJECTS = [
@@ -140,6 +147,21 @@ export const PROJECTS = [
     live: 'https://nourish-meal-planner.vercel.app/',
     repo: 'https://github.com/Vallabh1807/nourish',
   },
+  {
+    id: 7,
+    emoji: '🚍',
+    color: '#FFE0B2',
+    accent: '#F57C00',
+    category: "Chef's Special",
+    title: 'TMT Bus Seva',
+    subtitle: 'Live bus tracking & E-ticketing',
+    desc: 'A comprehensive transit platform for Thane Municipal Transport (TMT) providing users with live bus locations, interactive route finding, and a seamless E-ticketing system for daily commuters.',
+    stack: ['Flutter', 'Python', 'Node.js'],
+    difficulty: 5,
+    year: '2026',
+    live: '#',
+    repo: '#',
+  },
 ]
 
 export const SKILLS = [
@@ -201,7 +223,7 @@ export const TESTIMONIALS = [
 ]
 
 export const RESUME = {
-  downloadUrl: '#',
+  downloadUrl: '/resume.pdf',
   highlights: [
     { label: 'Current Role',        value: 'Software Developer Engineer' },
     { label: 'Company',             value: 'Capgemini (Fresher)' },
@@ -219,7 +241,7 @@ export const CERTIFICATIONS = [
     issuer: 'Udemy',
     year: '2024',
     color: '#A435F0',
-    verifyUrl: '#',
+    verifyUrl: '/web-dev-certificate.pdf',
     badge: '🎓',
     desc: 'Full-stack web development covering HTML, CSS, JavaScript, React, Node.js and more.',
   },
@@ -229,7 +251,7 @@ export const CERTIFICATIONS = [
     issuer: 'Coursera · IBM',
     year: '2024',
     color: '#0062FF',
-    verifyUrl: '#',
+    verifyUrl: '/data-science-certificate.pdf',
     badge: '🏅',
     desc: 'Professional-level data science program covering Python, ML, data analysis and visualisation.',
   },
@@ -239,7 +261,7 @@ export const CERTIFICATIONS = [
     issuer: 'Capgemini',
     year: '2025',
     color: '#0070AD',
-    verifyUrl: '#',
+    verifyUrl: '/sap-mm-certificate.pdf',
     badge: '⚓',
     desc: 'Capgemini OCEAN skill certification in SAP Materials Management — benchmarks functional expertise within the organisation.',
   },

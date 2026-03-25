@@ -229,25 +229,26 @@ export default function SceneTimeline() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
             {TIMELINE.map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: 20, paddingLeft: 8 }}>
-                <NodeEmoji emoji={item.emoji} delay={i * 0.12} />
-                <PolaroidCard tilt={TILTS[i]} delay={i * 0.12}>
+                <NodeEmoji emoji={item.emoji} delay={i * 0.12} color={item.color || 'var(--yellow)'} />
+                <PolaroidCard tilt={TILTS[i] || {drop: 0, rest: 0}} delay={i * 0.12}>
                   <div 
                     className="card" 
-                    data-tilt={TILTS[i].rest}
+                    data-tilt={(TILTS[i] && TILTS[i].rest) || 0}
                     onMouseEnter={handleCardEnter}
                     onMouseLeave={handleCardLeave}
                     style={{ 
                       flex: 1, 
                       padding: '16px 20px',
+                      borderColor: item.color || undefined,
                       cursor: 'none',
                       boxShadow: '3px 3px 0 var(--dark), 6px 10px 20px rgba(0,0,0,0.15)',
                       transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                     }}
                   >
-                    <div style={{ display: 'flex', gap: 10, alignItems: 'baseline', flexWrap: 'wrap', marginBottom: 6 }}>
+                    <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginBottom: 6 }}>
                       <span style={{ fontFamily: 'var(--font-d)', fontSize: '1.2rem' }}>{item.title}</span>
                       <span style={{
-                        background: 'var(--orange)', color: 'white',
+                        background: item.color || 'var(--orange)', color: 'white',
                         padding: '2px 10px', borderRadius: 20,
                         fontSize: '.75rem', fontWeight: 800,
                         border: '2px solid var(--dark)',
@@ -258,36 +259,6 @@ export default function SceneTimeline() {
                 </PolaroidCard>
               </div>
             ))}
-          </div>
-
-          <div style={{ display: 'flex', gap: 20, paddingLeft: 8, marginTop: 28 }}>
-            <NodeEmoji emoji="🔥" delay={0.1} color="var(--green)" />
-            <PolaroidCard tilt={TILTS[TIMELINE.length]} delay={0.1}>
-              <div 
-                className="card" 
-                data-tilt={TILTS[TIMELINE.length].rest}
-                onMouseEnter={handleCardEnter}
-                onMouseLeave={handleCardLeave}
-                style={{ 
-                  flex: 1, 
-                  padding: '16px 20px', 
-                  borderColor: 'var(--green)',
-                  cursor: 'none',
-                  boxShadow: '3px 3px 0 var(--dark), 6px 10px 20px rgba(0,0,0,0.15)',
-                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                }}
-              >
-                <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginBottom: 4 }}>
-                  <span style={{ fontFamily: 'var(--font-d)', fontSize: '1.2rem' }}>Currently Cooking</span>
-                  <span style={{ background: 'var(--green)', color: 'white', padding: '2px 10px', borderRadius: 20, fontSize: '.75rem', fontWeight: 800, border: '2px solid var(--dark)' }}>Now</span>
-                </div>
-                <p style={{ fontSize: '.9rem', color: '#222', fontWeight: 600, lineHeight: 1.65 }}>
-                  Fresher SDE by day, AI tinkerer by night. Growing fast at 
-                  Capgemini while building side projects with Gen AI and vibe 
-                  coding. Always cooking something new 🚀
-                </p>
-              </div>
-            </PolaroidCard>
           </div>
         </div>
       </div>
